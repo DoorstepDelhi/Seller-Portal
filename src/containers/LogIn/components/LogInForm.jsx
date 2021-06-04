@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import EyeIcon from 'mdi-react/EyeIcon';
 import KeyVariantIcon from 'mdi-react/KeyVariantIcon';
-import AccountOutlineIcon from 'mdi-react/AccountOutlineIcon';
+import PhoneOutlineIcon from 'mdi-react/AccountOutlineIcon';
 import { Link } from 'react-router-dom';
 import CheckBox from '../../../shared/components/form/CheckBox';
 
@@ -20,15 +20,15 @@ const LogInForm = () => {
   return (
     <form className="form">
       <div className="form__form-group">
-        <span className="form__form-group-label">Username</span>
+        <span className="form__form-group-label">Mobile</span>
         <div className="form__form-group-field">
           <div className="form__form-group-icon">
-            <AccountOutlineIcon />
+            <PhoneOutlineIcon />
           </div>
           <input
-            name="name"
-            type="text"
-            placeholder="Name"
+            name="mobile-no"
+            type="numbers"
+            placeholder="1234567890"
           />
         </div>
       </div>
@@ -41,7 +41,7 @@ const LogInForm = () => {
           <input
             name="password"
             type={isPasswordShown ? 'text' : 'password'}
-            placeholder="Password"
+            placeholder="........"
           />
           <button
             className={`form__form-group-button${isPasswordShown ? ' active' : ''}`}
@@ -51,7 +51,7 @@ const LogInForm = () => {
           </button>
         </div>
         <div className="account__forgot-password">
-          <a href="/">Forgot a password?</a>
+          <a href="/">Forgot password?</a>
         </div>
       </div>
       <div className="form__form-group">
@@ -71,3 +71,4 @@ const LogInForm = () => {
 };
 
 export default LogInForm;
+      
