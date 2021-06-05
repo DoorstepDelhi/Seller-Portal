@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container,Col,Row } from "reactstrap";
-import CreateTableData from "../CreateTableData";
+import CreateTableData from "./components/CreateTableData";
 
 const TransactionTable = () => {
     const reactTableData = CreateTableData();
