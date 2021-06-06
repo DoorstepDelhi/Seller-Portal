@@ -8,7 +8,7 @@ const LogIn = () => (
         <div className="account__head">
           <h3 className="account__title">Welcome to DoorStep Delhi
           </h3>
-          <h4 className="account__subhead subhead">Pickup Portal</h4>
+          <h4 className="account__subhead subhead">Seller Portal</h4>
         </div>
         <LogInForm />
       </div>
