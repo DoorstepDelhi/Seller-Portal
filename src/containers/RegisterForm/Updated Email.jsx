@@ -30,7 +30,7 @@ const RegisterForm = () => {
           <input
             name="username"
             type="text"
-            placeholder="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_"
+            placeholder="Enter your Username HERE"
           />
         </div>
       </div>
@@ -43,7 +43,7 @@ const RegisterForm = () => {
           <input
             name="email"
             type="email"
-            placeholder="abcdefghijklmnopqrstuvwxyz@mail.com"
+            placeholder="EmailAddress@mail.com"
           />
         </div>
       </div>
