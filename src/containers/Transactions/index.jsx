@@ -1,12 +1,14 @@
 import React from 'react'
-import { Container,Col,Row } from "reactstrap";
+import { Container, Col, Row } from "reactstrap";
+
 import CreateTableData from "./components/CreateTableData";
+import TransactionReactTable from "./components/TransactionReactTable";
 
 const TransactionTable = () => {
-    const reactTableData = CreateTableData();
+  const reactTableData = CreateTableData();
 
-    return(
-        <Container>
+  return (
+    <Container>
       <Row>
         <Col md={12}>
           <h3 className="page-title">Transactions</h3>
@@ -18,7 +20,7 @@ const TransactionTable = () => {
         <TransactionReactTable reactTableData={reactTableData} />
       </Row>
     </Container>
-    );
+  );
 }
 
 export default TransactionTable;

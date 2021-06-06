@@ -80,10 +80,6 @@ const ReactTableConstructor = ({
             page={page}
             getTableBodyProps={getTableBodyProps}
             prepareRow={prepareRow}
-            updateDraggableData={updateDraggableData}
-            updateEditableData={updateEditableData}
-            isEditable={isEditable}
-            withDragAndDrop={withDragAndDrop}
           />
           {(pageCount === (pageIndex + 1) || (!withPagination && rows.length !== 0)) && (
             <ReactTableFooter
@@ -160,9 +156,9 @@ ReactTableConstructor.defaultProps = {
   tableOptions: [{
     columns: [],
     data: [],
-    setFilterValue: () => {},
-    updateDraggableData: () => {},
-    updateEditableData: () => {},
+    setFilterValue: () => { },
+    updateDraggableData: () => { },
+    updateEditableData: () => { },
     defaultColumn: [],
     withDragAndDrop: false,
     dataLength: null,

@@ -3,20 +3,14 @@ import PropTypes from 'prop-types';
 import { useFlexLayout } from 'react-table';
 import ReactTableConstructor from './components/ReactTableConstructor';
 import ReactTableCell from './components/ReactTableCell';
-import ReactTableCellEditable from './components/ReactTableEditableCell';
 
 const ReactTableBase = ({
   tableConfig,
   columns,
   data,
-  updateDraggableData,
-  updateEditableData,
 }) => {
   const {
-    isEditable,
-    isResizable,
     isSortable,
-    withDragAndDrop,
     withPagination,
     withSearchEngine,
     manualPageSize,
@@ -25,12 +19,8 @@ const ReactTableBase = ({
   const tableOptions = {
     columns,
     data,
-    updateDraggableData,
-    updateEditableData,
     setFilterValue,
     defaultColumn: {},
-    isEditable,
-    withDragAndDrop: withDragAndDrop || false,
     dataLength: data.length,
     autoResetPage: false,
     disableSortBy: !isSortable,
@@ -45,21 +35,14 @@ const ReactTableBase = ({
   };
 
   let tableOptionalHook = [];
-  if (isResizable) tableOptionalHook = [useFlexLayout];
   if (withSearchEngine) {
     tableOptions.defaultColumn = {
       Cell: ReactTableCell,
     };
   }
-  if (isEditable) {
-    tableOptions.defaultColumn = {
-      Cell: ReactTableCellEditable,
-    };
-  }
-
   return (
     <ReactTableConstructor
-      key={isResizable || isEditable ? 'modified' : 'common'}
+      key={false || false ? 'modified' : 'common'}
       tableConfig={tableConfig}
       tableOptions={tableOptions}
       tableOptionalHook={tableOptionalHook}
@@ -69,10 +52,7 @@ const ReactTableBase = ({
 
 ReactTableBase.propTypes = {
   tableConfig: PropTypes.shape({
-    isEditable: PropTypes.bool,
-    isResizable: PropTypes.bool,
     isSortable: PropTypes.bool,
-    withDragAndDrop: PropTypes.bool,
     withPagination: PropTypes.bool,
     withSearchEngine: PropTypes.bool,
     manualPageSize: PropTypes.arrayOf(PropTypes.number),
@@ -88,10 +68,7 @@ ReactTableBase.propTypes = {
 
 ReactTableBase.defaultProps = {
   tableConfig: {
-    isEditable: false,
-    isResizable: false,
     isSortable: false,
-    withDragAndDrop: false,
     withPagination: false,
     withSearchEngine: false,
     manualPageSize: [],
@@ -105,8 +82,8 @@ ReactTableBase.defaultProps = {
     { id: 1, first: 'Cell Example Data one', last: 'Cell Example Data two' },
     { id: 2, first: 'Cell Example Data three', last: 'Cell Example Data four' },
   ],
-  updateDraggableData: () => {},
-  updateEditableData: () => {},
+  updateDraggableData: () => { },
+  updateEditableData: () => { },
 };
 
 export default ReactTableBase;

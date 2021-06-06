@@ -7,6 +7,8 @@ import LogIn from '../LogIn/index';
 import ExamplePageOne from '../Example/index';
 import ExamplePageTwo from '../ExampleTwo/index';
 
+import TransactionTable from "../Transactions/index";
+
 const Pages = () => (
   <Switch>
     <Route path="/pages/one" component={ExamplePageOne} />
@@ -19,7 +21,9 @@ const wrappedRoutes = () => (
     <Layout />
     <div className="container__wrap">
       <Route path="/pages" component={Pages} />
+      <Route path="/transactions" component={TransactionTable} />
     </div>
+
   </div>
 );
 
@@ -30,6 +34,7 @@ const Router = () => (
         <Route exact path="/" component={LogIn} />
         <Route exact path="/log_in" component={LogIn} />
         <Route path="/" component={wrappedRoutes} />
+
       </Switch>
     </main>
   </MainWrapper>
