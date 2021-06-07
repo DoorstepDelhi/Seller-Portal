@@ -58,6 +58,7 @@ const ReactTableCustomizer = ({
                 text={item.text}
                 handleClick={item.func}
                 isChecked={item.isChecked}
+                isDisabled={item.isDisabled}
               />
             ))}
           </div>
@@ -68,34 +69,16 @@ const ReactTableCustomizer = ({
 };
 
 ReactTableCustomizer.propTypes = {
-  handleClickIsEditable: PropTypes.func,
-  handleClickIsResizable: PropTypes.func,
   handleClickIsSortable: PropTypes.func.isRequired,
-  handleClickWithDragAndDrop: PropTypes.func,
   handleClickWithPagination: PropTypes.func.isRequired,
   handleClickWithSearchEngine: PropTypes.func.isRequired,
-  isEditable: PropTypes.bool,
-  isResizable: PropTypes.bool,
   isSortable: PropTypes.bool.isRequired,
-  isDisabledDragAndDrop: PropTypes.bool,
-  isDisabledEditable: PropTypes.bool,
-  isDisabledResizable: PropTypes.bool,
-  withDragAndDrop: PropTypes.bool,
   withPagination: PropTypes.bool.isRequired,
   withSearchEngine: PropTypes.bool.isRequired,
   fullCustomizer: PropTypes.bool,
 };
 
 ReactTableCustomizer.defaultProps = {
-  handleClickIsEditable: () => { },
-  handleClickIsResizable: () => { },
-  handleClickWithDragAndDrop: () => { },
-  isEditable: false,
-  isResizable: false,
-  isDisabledDragAndDrop: false,
-  isDisabledEditable: false,
-  isDisabledResizable: false,
-  withDragAndDrop: false,
   fullCustomizer: false,
 };
 

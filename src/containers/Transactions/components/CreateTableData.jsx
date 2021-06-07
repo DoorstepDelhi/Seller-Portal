@@ -45,10 +45,10 @@ const CreateTableData = () => {
         for (let i = 1; i < 36; i += 1) {
             data.push({
                 id: i,
-                transactionid: [12340094, 34500055, 56000544][Math.floor((Math.random() * 3))],
-                amount: [5000, 12000, 15400][Math.floor((Math.random() * 3))],
+                transactionid: ['12340094', '34500055', '56000544'][Math.floor((Math.random() * 3))],
+                amount: ['5000', '12000', '15400'][Math.floor((Math.random() * 3))],
                 date: getRandomDate(new Date(2002, 3, 1), new Date(1954, 3, 1)),
-                orderid: [12334, 54454, 66756][Math.floor((Math.random() * 3))],
+                orderid: ['12334', '54454', '66756'][Math.floor((Math.random() * 3))],
                 accountdetails: ['this is xyz', 'this is zyf', 'this is thj'][Math.floor((Math.random() * 3))],
                 status: ['accepted', 'rejected', 'pending'][Math.floor((Math.random() * 3))],
                 badge: ['success', 'warning', 'primary'][Math.floor((Math.random() * 3))],

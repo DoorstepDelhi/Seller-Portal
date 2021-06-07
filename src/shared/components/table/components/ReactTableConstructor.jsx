@@ -13,8 +13,6 @@ const ReactTableConstructor = ({
   tableConfig, tableOptions, tableOptionalHook,
 }) => {
   const {
-    isEditable,
-    isResizable,
     isSortable,
     withPagination,
     withSearchEngine,
@@ -39,9 +37,6 @@ const ReactTableConstructor = ({
     canNextPage,
     setPageSize,
     setGlobalFilter,
-    withDragAndDrop,
-    updateDraggableData,
-    updateEditableData,
     dataLength,
     state: { pageIndex, pageSize },
   } = useTable(
@@ -69,12 +64,10 @@ const ReactTableConstructor = ({
       <div className={withPagination ? 'table react-table' : 'table react-table table--not-pagination'}>
         <table
           {...getTableProps()}
-          className={isEditable ? 'react-table editable-table' : 'react-table resizable-table'}
         >
           <ReactTableHeader
             headerGroups={headerGroups}
             isSortable={isSortable}
-            isResizable={isResizable}
           />
           <BodyReactTable
             page={page}
@@ -111,10 +104,7 @@ const ReactTableConstructor = ({
 
 ReactTableConstructor.propTypes = {
   tableConfig: PropTypes.shape({
-    isEditable: PropTypes.bool,
-    isResizable: PropTypes.bool,
     isSortable: PropTypes.bool,
-    withDragAndDrop: PropTypes.bool,
     withPagination: PropTypes.bool,
     withSearchEngine: PropTypes.bool,
     manualPageSize: PropTypes.arrayOf(PropTypes.number),
@@ -144,10 +134,7 @@ ReactTableConstructor.propTypes = {
 
 ReactTableConstructor.defaultProps = {
   tableConfig: {
-    isEditable: false,
-    isResizable: false,
     isSortable: false,
-    withDragAndDrop: false,
     withPagination: false,
     withSearchEngine: false,
     manualPageSize: [10, 20, 30, 40],

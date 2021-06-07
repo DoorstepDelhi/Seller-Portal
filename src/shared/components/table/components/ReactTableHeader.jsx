@@ -59,7 +59,7 @@ const getStylesResizable = (props, align = 'left') => [
   },
 ];
 
-const ReactTableHeader = ({ headerGroups, isResizable, isSortable }) => {
+const ReactTableHeader = ({ headerGroups, isSortable }) => {
   const headerPropsSortable = (props, { column }) => {
     if (column.getSortByToggleProps && isSortable) {
       return column.getSortByToggleProps;
@@ -87,9 +87,6 @@ const ReactTableHeader = ({ headerGroups, isResizable, isSortable }) => {
                 column={column}
                 isSortable={isSortable}
               />
-              {isResizable && (
-                <div {...column.getResizerProps()} className={`resizer ${column.isResizing && 'isResizing'}`} />
-              )}
             </th>
           ))}
         </tr>
@@ -104,7 +101,6 @@ ReactTableHeader.propTypes = {
     getHeaderGroupProps: PropTypes.func,
     getFooterGroupProps: PropTypes.func,
   })).isRequired,
-  isResizable: PropTypes.bool.isRequired,
   isSortable: PropTypes.bool.isRequired,
 };
 
