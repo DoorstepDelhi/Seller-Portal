@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../../scss/app.scss';
-import Router from './Router';
+import Router from './Router/Router';
 import ScrollToTop from './ScrollToTop';
 
 const App = () => {

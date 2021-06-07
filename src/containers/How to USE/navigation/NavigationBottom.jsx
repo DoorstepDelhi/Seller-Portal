@@ -44,6 +44,6 @@ NavigationBottom.defaultProps = {
   nextTitle: '',
 };
 
-export default connect(state => ({
+export default connect((state) => ({
   rtl: state.rtl,
 }))(NavigationBottom);

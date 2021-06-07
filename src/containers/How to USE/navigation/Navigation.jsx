@@ -20,7 +20,7 @@ const navigationLinksData = [
 const Navigation = ({ active }) => (
   <Card className="card--not-full-height documentation__nav-wrap">
     <CardBody>
-      {navigationLinksData.map(item => (
+      {navigationLinksData.map((item) => (
         <Link
           key={`index_${item.link}`}
           to={`/documentation/${item.link}`}
