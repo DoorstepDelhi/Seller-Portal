@@ -40,9 +40,7 @@ ReactTableBody.propTypes = {
   page: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   getTableBodyProps: PropTypes.func.isRequired,
   prepareRow: PropTypes.func.isRequired,
-  updateDraggableData: PropTypes.func.isRequired,
-  withDragAndDrop: PropTypes.bool.isRequired,
-  theme: ThemeProps.isRequired,
+  // theme: ThemeProps.isRequired,
 };
 
 // export default connect(state => ({

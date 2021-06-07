@@ -34,7 +34,7 @@ const ReactTableCustomizer = ({
       <div className="table__collapse">
         <button className="table__btn" type="button" onClick={handleOpen}>
           <h5>Apply filters</h5>
-          <DownIcon className="table__icon" />
+          <DownIcon className="table__icon" style={{ fill: 'black' }} />
         </button>
         {collapse && (
           <button

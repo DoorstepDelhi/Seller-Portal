@@ -62,8 +62,6 @@ ReactTableBase.propTypes = {
     name: PropTypes.string,
   })),
   data: PropTypes.arrayOf(PropTypes.shape()),
-  updateDraggableData: PropTypes.func,
-  updateEditableData: PropTypes.func,
 };
 
 ReactTableBase.defaultProps = {
@@ -82,8 +80,6 @@ ReactTableBase.defaultProps = {
     { id: 1, first: 'Cell Example Data one', last: 'Cell Example Data two' },
     { id: 2, first: 'Cell Example Data three', last: 'Cell Example Data four' },
   ],
-  updateDraggableData: () => { },
-  updateEditableData: () => { },
 };
 
 export default ReactTableBase;

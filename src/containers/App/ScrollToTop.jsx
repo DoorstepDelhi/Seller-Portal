@@ -16,7 +16,7 @@ ScrollToTop.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string,
   }).isRequired,
-  children: PropTypes.element.isRequired,
+  // children: PropTypes.element.isRequired,
 };
 
 export default withRouter(ScrollToTop);
