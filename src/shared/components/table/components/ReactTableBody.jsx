@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 // import { connect } from 'react-redux';
 import { ThemeProps } from '../../../prop-types/ReducerProps';
 
-const ReactTableDefaultBody = ({ page, getTableBodyProps, prepareRow }) => (
+const ReactTableDefaultBody = ({ page, getTableBodyProps, prepareRow }) =>
+(
   <tbody className="table table--bordered" {...getTableBodyProps()}>
     {page.map((row) => {
       prepareRow(row);

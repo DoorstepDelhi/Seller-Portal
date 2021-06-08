@@ -8,6 +8,7 @@ import ExamplePageOne from '../Example/index';
 import ExamplePageTwo from '../ExampleTwo/index';
 
 import TransactionTable from "../Transactions/index";
+import ReturnsTable from "../Returns/index"
 
 const Pages = () => (
   <Switch>
@@ -22,6 +23,7 @@ const wrappedRoutes = () => (
     <div className="container__wrap">
       <Route path="/pages" component={Pages} />
       <Route path="/transactions" component={TransactionTable} />
+      <Route path="/returns" component={ReturnsTable} />
     </div>
 
   </div>
