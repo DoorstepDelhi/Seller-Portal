@@ -1,8 +1,17 @@
 .material-form {
+  @include directify($directions) {
+    text-align: directed('left');
+  }
 
   .material-form__field {
     width: 100%;
     margin-bottom: 20px;
+
+    div {
+      @include themify($themes) {
+        color: themed('colorText');
+      }
+    }
 
     & > div:before {
 
@@ -26,8 +35,18 @@
         color: themed('colorText');
       }
     }
+    label {
+      @include directify($directions) {
+        #{directed('left')}: 0px;
+        #{directed('right')}: auto;
+      }
+    }
 
     svg {
+      @include directify($directions) {
+        #{directed('left')}: auto;
+        #{directed('right')}: 0;
+      }
 
       @include themify($themes) {
         fill: themed('colorText');

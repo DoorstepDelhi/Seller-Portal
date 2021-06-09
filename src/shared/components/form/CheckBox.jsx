@@ -1,27 +1,27 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import React, { useEffect } from 'react';
 import CheckIcon from 'mdi-react/CheckIcon';
 import CloseIcon from 'mdi-react/CloseIcon';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 const CheckBoxField = ({
+  onChange,
+  defaultChecked,
   disabled,
   className,
   name,
   value,
-  onChange,
   label,
   color,
 }) => {
+  useEffect(() => {
+    onChange(defaultChecked);
+  }, [onChange, defaultChecked]);
+
   const CheckboxClass = classNames({
     'checkbox-btn': true,
     disabled,
   });
-
-  const changeHandler = () => {
-    onChange();
-  };
-
   return (
     <label
       className={`${CheckboxClass} ${className ? ` checkbox-btn--${className}` : ''}`}
@@ -32,7 +32,7 @@ const CheckBoxField = ({
         type="checkbox"
         id={name}
         name={name}
-        onChange={changeHandler}
+        onChange={onChange}
         checked={value}
         disabled={disabled}
       />
@@ -57,43 +57,37 @@ const CheckBoxField = ({
 };
 
 CheckBoxField.propTypes = {
-  onChange: PropTypes.func,
+  onChange: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
   value: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.bool,
   ]).isRequired,
   label: PropTypes.string,
+  defaultChecked: PropTypes.bool,
   disabled: PropTypes.bool,
   className: PropTypes.string,
   color: PropTypes.string,
 };
 
 CheckBoxField.defaultProps = {
-  onChange: () => {},
   label: '',
+  defaultChecked: false,
   disabled: false,
   className: '',
   color: '',
 };
 
 const renderCheckBoxField = ({
-  input,
-  label,
-  defaultChecked,
-  disabled,
-  className,
-  color,
-  ...other
+  input, label, defaultChecked, disabled, className, color,
 }) => (
   <CheckBoxField
-    input={input}
+    {...input}
     label={label}
     defaultChecked={defaultChecked}
     disabled={disabled}
     className={className}
     color={color}
-    {...other}
   />
 );
 
