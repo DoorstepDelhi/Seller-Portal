@@ -28,8 +28,8 @@ const SidebarContent = ({ onClick }) => {
       </ul>
 
       <ul className="sidebar__block">
-        <SidebarLink title="FAQ" icon="menu" route="/faq" onClick={handleHideSidebar} />
-        <SidebarLink title="How to Use" icon="" route="/how-to-use" onClick={handleHideSidebar} />
+        <SidebarLink title="FAQ" icon="menu" route="/documentations/faq" onClick={handleHideSidebar} />
+        <SidebarLink title="How to Use" icon="" route="/documentations/how-to-use" onClick={handleHideSidebar} />
         <SidebarLink
           title="Terms and conditions"
           icon="text-align-justify"
