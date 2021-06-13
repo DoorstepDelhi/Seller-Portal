@@ -5,15 +5,17 @@ import MainWrapper from './MainWrapper';
 
 import LogIn from '../LogIn/index';
 import ExamplePageOne from '../Example/index';
-import ExamplePageTwo from '../ExampleTwo/index';
 
 import TransactionTable from "../Transactions/index";
 import ReturnsTable from "../Returns/index"
+import OrdersHistoryTable from "../OrdersHistory/index"
+import OrdersDetailsPage from "../OrdersDetails/index"
 
-const Pages = () => (
+const Orders = () => (
   <Switch>
-    <Route path="/pages/one" component={ExamplePageOne} />
-    <Route path="/pages/two" component={ExamplePageTwo} />
+    <Route path="/orders/new" component={ExamplePageOne} />
+    <Route path="/orders/details" component={OrdersDetailsPage} />
+    <Route path="/orders/history" component={OrdersHistoryTable} />
   </Switch>
 );
 
@@ -21,7 +23,7 @@ const wrappedRoutes = () => (
   <div>
     <Layout />
     <div className="container__wrap">
-      <Route path="/pages" component={Pages} />
+      <Route path="/orders" component={Orders} />
       <Route path="/transactions" component={TransactionTable} />
       <Route path="/returns" component={ReturnsTable} />
     </div>

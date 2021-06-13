@@ -19,6 +19,7 @@ const SidebarContent = ({ onClick }) => {
       <ul className="sidebar__block">
         <SidebarCategory title="Orders" icon="cart">
           <SidebarLink title="New" route="/orders/new" onClick={handleHideSidebar} />
+          <SidebarLink title="Details" route="/orders/details" onClick={handleHideSidebar} />
           <SidebarLink title="History" route="/orders/history" onClick={handleHideSidebar} />
         </SidebarCategory>
       </ul>

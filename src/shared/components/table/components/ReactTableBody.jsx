@@ -8,6 +8,7 @@ const ReactTableDefaultBody = ({ page, getTableBodyProps, prepareRow }) =>
   <tbody className="table table--bordered" {...getTableBodyProps()}>
     {page.map((row) => {
       prepareRow(row);
+      { console.log(row) }
       return (
         <tr {...row.getRowProps()}>
           {row.cells.map(cell => (

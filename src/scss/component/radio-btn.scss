@@ -201,6 +201,7 @@
   top: calc(50% - 3px);
   background: $color-accent;
   border-radius: 50%;
+  left:30%;
 
   @include directify($directions) {
     #{directed('left')}: calc(50% - 3px);

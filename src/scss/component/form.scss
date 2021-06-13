@@ -72,6 +72,7 @@
       max-height: 32px;
       line-height: 18px;
       margin: auto 0;
+      font-size: 20px;
 
       & + .form__form-group-field {
         margin-left: 0;
@@ -98,6 +99,7 @@
 
       .form__form-group-label {
         width: 120px;
+        font-size: 20px;
       }
 
       .form__form-group-field {
@@ -303,6 +305,7 @@
 .form__form-group-label {
   margin-bottom: 4px;
   display: inline-block;
+  font-size: 20px;
 
   @include themify($themes) {
     color: themed('colorText');

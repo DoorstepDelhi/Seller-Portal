@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import '../../scss/app.scss';
 import Router from './Router';
 import ScrollToTop from './ScrollToTop';
+import store from './store';
+import { connect, Provider } from 'react-redux';
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -17,22 +19,24 @@ const App = () => {
   }, []);
 
   return (
-    <BrowserRouter>
-      <ScrollToTop>
-        {!isLoaded && (
-          <div className={`load${isLoading ? '' : ' loaded'}`}>
-            <div className="load__icon-wrap">
-              <svg className="load__icon">
-                <path fill="#4ce1b6" d="M12,4V2A10,10 0 0,0 2,12H4A8,8 0 0,1 12,4Z" />
-              </svg>
+    <Provider store={store}>
+      <BrowserRouter>
+        <ScrollToTop>
+          {!isLoaded && (
+            <div className={`load${isLoading ? '' : ' loaded'}`}>
+              <div className="load__icon-wrap">
+                <svg className="load__icon">
+                  <path fill="#4ce1b6" d="M12,4V2A10,10 0 0,0 2,12H4A8,8 0 0,1 12,4Z" />
+                </svg>
+              </div>
             </div>
+          )}
+          <div>
+            <Router />
           </div>
-        )}
-        <div>
-          <Router />
-        </div>
-      </ScrollToTop>
-    </BrowserRouter>
+        </ScrollToTop>
+      </BrowserRouter>
+    </Provider>
   );
 };
 
