@@ -9,9 +9,6 @@ import i18n from 'i18next';
 import 'bootstrap/dist/css/bootstrap.css';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import '../../scss/app.scss';
-
-import 'firebase/auth';
-
 import Router from './Router';
 import store from './store';
 import ScrollToTop from './ScrollToTop';
@@ -57,7 +54,7 @@ const App = () => {
 
   return (
     <Provider store={store}>
-    <BrowserRouter basename="/sellerportal">
+    <BrowserRouter>
     <I18nextProvider i18n={i18n}>
       <ScrollToTop>
         {!isLoaded && (

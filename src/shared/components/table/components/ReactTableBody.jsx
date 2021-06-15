@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { ThemeProps } from '@/shared/prop-types/ReducerProps';
+import { ThemeProps } from '../../../prop-types/ReducerProps';
 import ReactTableDnDBody from './ReactTableDnDBody';
 
 const ReactTableDefaultBody = ({ page, getTableBodyProps, prepareRow }) => (

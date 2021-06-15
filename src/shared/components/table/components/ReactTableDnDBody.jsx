@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
-import { ThemeProps } from '@/shared/prop-types/ReducerProps';
+import { ThemeProps } from '../../../prop-types/ReducerProps';
 
 const getItemStyle = (draggableStyle, theme) => ({
   cursor: 'pointer',
