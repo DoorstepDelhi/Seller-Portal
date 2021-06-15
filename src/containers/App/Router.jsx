@@ -12,8 +12,8 @@ import Dashboard from '../Dashboarddesign/index';
 
 const Pages = () => (
   <Switch>
-    <Route path="/pages/one" component={Dashboard} />
     <Route path="/pages/dashboard" component={Dashboard} />
+    
     
   </Switch>
 );
