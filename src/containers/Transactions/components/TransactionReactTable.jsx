@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import {
   Card, CardBody, Col,
 } from 'reactstrap';
@@ -55,5 +56,19 @@ const TransactionReactTable = ({ reactTableData }) => {
     </Col>
   );
 };
+
+
+TransactionReactTable.propTypes = {
+  reactTableData: PropTypes.shape({
+    tableHeaderData: PropTypes.arrayOf(PropTypes.shape({
+      key: PropTypes.string,
+      name: PropTypes.string,
+    })),
+    tableRowsData: PropTypes.arrayOf(PropTypes.shape()),
+    defaultTableHeaderData: PropTypes.arrayOf(PropTypes.shape()),
+    defaultTableRowData: PropTypes.arrayOf(PropTypes.shape()),
+  }).isRequired,
+}
+
 
 export default TransactionReactTable;

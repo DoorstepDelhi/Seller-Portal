@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import renderRadioButtonField from '../../../shared/components/form/RadioButton';
 
-const CartPurchase = ({ handleSubmit }) => (
+const OrderPurchase = ({ handleSubmit }) => (
   <form className="form cart__deliveries" onSubmit={handleSubmit}>
     <div className="form__form-group">
       <span className="form__form-group-label">Delivery method:</span>
@@ -39,10 +39,10 @@ const CartPurchase = ({ handleSubmit }) => (
   </form>
 );
 
-CartPurchase.propTypes = {
+OrderPurchase.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
 };
 
 export default reduxForm({
   form: 'cart_purchase_form', // a unique identifier for this form
-})(CartPurchase);
+})(OrderPurchase);

@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import { ThemeProps } from '../../../prop-types/ReducerProps';
 
 const ReactTableDefaultBody = ({ page, getTableBodyProps, prepareRow }) =>
@@ -42,11 +42,11 @@ ReactTableBody.propTypes = {
   page: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   getTableBodyProps: PropTypes.func.isRequired,
   prepareRow: PropTypes.func.isRequired,
-  // theme: ThemeProps.isRequired,
+  theme: ThemeProps.isRequired,
 };
 
-// export default connect(state => ({
-//   theme: state.theme,
-// }))(ReactTableBody);
+export default connect(state => ({
+  theme: state.theme,
+}))(ReactTableBody);
 
-export default ReactTableBody;
+// export default ReactTableBody;
