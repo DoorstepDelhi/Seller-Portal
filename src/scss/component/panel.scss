@@ -188,7 +188,8 @@
 }
 
 .panel__btns {
-  position: absolute;
+ 
+  position: right;
   top: 30px;
   @include directify($directions) {
     #{directed('right')}: 10px;
@@ -196,6 +197,7 @@
 }
 
 .panel__btn {
+  float:right;
   width: 14px;
   height: 14px;
   background: transparent;

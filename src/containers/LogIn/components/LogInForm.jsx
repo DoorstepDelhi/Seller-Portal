@@ -56,7 +56,7 @@ const LogInForm = () => {
       </div>
       <div className="form__form-group">
         <div className="form__form-group-field">
-          <CheckBox
+          <CheckBox 
             name="remember_me"
             label="Remember me"
             value={isToggleCheckboxEnabled}

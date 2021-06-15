@@ -83,13 +83,6 @@ h6 {
 }
 
 .bold-text {
-  @include directify($directions) {
-    text-align: directed('left');
-  }
-  font-weight: 700;
-}
-
-.text-modal {
   font-weight: 700;
 }
 
@@ -99,16 +92,11 @@ h6 {
 
   * {
     margin-top: auto;
-    @include directify($directions) {
-      #{directed('margin-right')}: 15px;
-    }
+    margin-right: 15px;
   }
 }
 
 .typography-card {
-  @include directify($directions) {
-    text-align: directed('left');
-  }
 
   h1, h2, h3, h4, h5, h6 {
     margin-bottom: 10px;
@@ -118,36 +106,21 @@ h6 {
 blockquote {
   font-size: 13px;
   font-style: italic;
-  @include directify($directions) {
-    #{directed('border-left')}: 3px solid $color-accent;
-  }
+  border-left: 3px solid $color-accent;
   margin-bottom: 0;
-  @include directify($directions) {
-    text-align: directed('left');
-    #{directed('padding-left')}: 10px;
-  }
+  padding-left: 10px;
 }
 
 .highlight {
   background-color: $color-accent;
-  color: $color-white;
-}
-
-.typography-message{
-  @include directify($directions) {
-    text-align: directed('left');
-  }
+  color: #ffffff;
 }
 
 .red-text {
-  color: $color-red;
+  color: #ad4444;
 }
 
 .page-title {
-
-  @include directify($directions) {
-    text-align: directed('left');
-  }
   font-weight: 500;
   text-transform: capitalize;
   font-size: 20px;
@@ -162,9 +135,6 @@ blockquote {
 }
 
 .page-subhead {
-  @include directify($directions) {
-    text-align: directed('left');
-  }
   margin-bottom: 20px;
 
   &.subhead {
@@ -174,7 +144,7 @@ blockquote {
 }
 
 ::selection {
-  color: $color-white;
+  color: #ffffff;
   background: $color-accent;
 }
 

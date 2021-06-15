@@ -1,13 +1,6 @@
-@import '~react-datepicker/dist/react-datepicker.css';
-@import '~rc-time-picker/assets/index.css';
-
 .form {
   display: flex;
   flex-wrap: wrap;
-  @include directify($directions) {
-    text-align: directed('left');
-    direction: directed('direction');
-  }
 
   input, textarea {
     width: 100%;
@@ -70,10 +63,8 @@
 
     .form__form-group-field {
       width: calc(100% - 80px);
-      @include directify($directions) {
-        #{directed('padding-left')}: 10px;
-        #{directed('margin-left')}: 80px;
-      }
+      padding-left: 10px;
+      margin-left: 80px;
     }
 
     .form__form-group-label {
@@ -83,22 +74,16 @@
       margin: auto 0;
 
       & + .form__form-group-field {
-        @include directify($directions) {
-          #{directed('margin-left')}: 0px;
-        }
+        margin-left: 0;
       }
     }
 
     .form__form-group-description {
-      @include directify($directions) {
-        #{directed('margin-left')}: 90px;
-      }
+      margin-left: 90px;
     }
 
     .form__button-toolbar {
-      @include directify($directions) {
-        #{directed('margin-left')}: 0px;
-      }
+      margin-left: 0;
     }
 
     .form__form-group-input-wrap--error-above {
@@ -117,16 +102,12 @@
 
       .form__form-group-field {
         width: calc(100% - 120px);
-        @include directify($directions) {
-          #{directed('margin-left')}: 120px;
-          #{directed('padding-left')}: 20px;
-        }
+        margin-left: 120px;
+        padding-left: 20px;
       }
 
       .form__form-group-description, .form__button-toolbar {
-        @include directify($directions) {
-          #{directed('margin-left')}: 140px;
-        }
+        margin-left: 140px;
       }
     }
   }
@@ -135,15 +116,20 @@
     display: flex;
 
     & > div:nth-child(2) {
-      @include directify($directions) {
-        #{directed('margin-right')}: 50px;
-      }
+      margin-right: 50px;
     }
 
     .form__form-group {
       margin-bottom: 10px;
       width: auto;
       min-height: 18px;
+    }
+
+    .form__select-color {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 84px;
+      margin-right: 40px;
     }
 
     p {
@@ -163,6 +149,117 @@
       width: 100%;
     }
   }
+
+  .form__form-group-select {
+    width: 100%;
+    height: 32px;
+    font-size: 12px;
+
+    .Select-control {
+      height: 32px;
+      border-radius: 0;
+      transition: all 0.3s;
+      background: transparent;
+
+      @include themify($themes) {
+        border: 1px solid themed('colorFieldsBorder');
+      }
+    }
+
+    .Select-placeholder, .Select-input {
+      height: 30px;
+    }
+
+    .Select-input {
+      width: 100%;
+    }
+
+    input {
+      width: 100% !important;
+      border: none;
+      padding: 0;
+    }
+
+    .Select-multi-value-wrapper {
+
+      .Select-input {
+        width: inherit;
+      }
+
+      .Select-value {
+        background: transparent;
+        border-color: $color-blue;
+      }
+
+      .Select-value-label {
+
+        @include themify($themes) {
+          color: themed('colorText') !important;
+        }
+      }
+
+      .Select-value-icon {
+        border-color: $color-blue;
+      }
+    }
+
+    .Select-menu-outer {
+      top: calc(100% + 1px);
+      border-radius: 0;
+      box-shadow: none;
+      font-size: 12px;
+      animation: open 0.3s ease-in-out;
+      overflow: hidden;
+
+      @include themify($themes) {
+        border: 1px solid themed('colorBorder');
+        background: themed('colorBackground');
+      }
+    }
+
+    @keyframes open {
+      0% {
+        max-height: 0
+      }
+      100% {
+        max-height: 200px
+      }
+    }
+
+    .Select-option {
+      transition: all 0.3s;
+      border-radius: 0;
+      display: flex;
+
+      @include themify($themes) {
+        background: themed('colorBackground');
+        color: themed('colorText');
+      }
+
+      &.is-focused {
+        @include themify($themes) {
+          background: themed('colorHover');
+        }
+      }
+    }
+
+    &.is-focused, &.is-focused:not(.is-open) {
+
+      .Select-control {
+        border-color: $color-accent;
+        box-shadow: none;
+        background: transparent;
+      }
+    }
+
+    .form__form-group-select-color {
+      display: block;
+      border-radius: 50%;
+      height: 10px;
+      width: 10px;
+      margin: auto 0 auto 5px;
+    }
+  }
 }
 
 .form__half {
@@ -170,9 +267,7 @@
   height: 100%;
 
   &:first-child {
-    @include directify($directions) {
-      #{directed('margin-right')}: 30px;
-    }
+    margin-right: 30px;
   }
 
   .form__button-toolbar {
@@ -181,9 +276,7 @@
 
   @media screen and (max-width: 1200px) {
     width: 100%;
-    @include directify($directions) {
-      #{directed('margin-right')}: 0px;
-    }
+    margin-right: 0;
   }
 }
 
@@ -196,9 +289,7 @@
 .form__form-group--address {
 
   input:last-child {
-    @include directify($directions) {
-      #{directed('margin-left')}: 15px;
-    }
+    margin-left: 15px;
     width: 70%;
   }
 }
@@ -207,9 +298,6 @@
   width: 100%;
   display: flex;
   margin: auto;
-  @include directify($directions) {
-    direction: #{directed('direction')};
-  }
 }
 
 .form__form-group-label {
@@ -221,7 +309,7 @@
   }
 
   span {
-    color: $color-dusty-white;
+    color: #dddddd;
   }
 }
 
@@ -248,7 +336,7 @@
     border: 1px solid $color-accent;
 
     svg {
-      fill: $color-white;
+      fill: #ffffff;
     }
   }
 }
@@ -278,9 +366,7 @@
   }
 
   span {
-    @include directify($directions) {
-      #{directed('padding-left')}: 10px;
-    }
+    padding-left: 10px;
   }
 
   input {
@@ -314,10 +400,6 @@
 
 .form__button-toolbar {
   margin-top: 10px;
-  @include directify($directions) {
-    direction: #{directed('direction')};
-  }
-
 }
 
 .form__form-group-input-wrap {
@@ -327,10 +409,10 @@
 .form__form-group-error {
   font-size: 10px;
   line-height: 13px;
-  color: $color-dark-red;
+  color: #ad4444;
   margin-bottom: -5px;
   display: block;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .form__form-group-input-wrap--error-above {
@@ -338,23 +420,19 @@
   .form__form-group-error {
     position: absolute;
     margin: 0;
-    @include directify($directions) {
-      #{directed('right')}: 0px;
-    }
+    right: 0;
     top: 0;
     padding: 5px 10px;
-    background: $color-very-light-red;
+    background: #ffbcbc;
     border-radius: 3px;
 
     &:after {
       content: '';
       position: absolute;
-      @include directify($directions) {
-        #{directed('right')}: 10px;
-      }
+      right: 10px;
       bottom: -8px;
       border: 4px solid transparent;
-      border-top: 4px solid $color-very-light-red;
+      border-top: 4px solid #ffbcbc;
     }
   }
 }
@@ -365,9 +443,7 @@
 
   .form__form-group-date {
     width: 100%;
-    @include directify($directions) {
-      #{directed('margin-right')}: 20px;
-    }
+    margin-right: 20px;
   }
 
   .form__form-group-cvc {
@@ -379,9 +455,7 @@
     flex-wrap: wrap;
 
     .form__form-group-date {
-      @include directify($directions) {
-        #{directed('margin-right')}: 0px;
-      }
+      margin-right: 0;
     }
 
     .form__form-group-cvc {
@@ -397,18 +471,14 @@
   .form__form-group-id {
     min-width: 100px;
     width: 40%;
-    @include directify($directions) {
-      #{directed('margin-right')}: 20px;
-    }
+    margin-right: 20px;
   }
 
   @media screen and (max-width: 767px) {
     flex-wrap: wrap;
 
     .form__form-group-id {
-      @include directify($directions) {
-        #{directed('margin-right')}: 0px;
-      }
+      margin-right: 0;
       width: 100%;
     }
   }
@@ -424,34 +494,15 @@
   }
 
   .form__form-group-price {
-    @include directify($directions) {
-      #{directed('margin-right')}: 20px;
-    }
+    margin-right: 20px;
   }
 
   @media screen and (max-width: 767px) {
     flex-wrap: wrap;
 
     .form__form-group-price {
-      @include directify($directions) {
-        #{directed('margin-right')}: 0px;
-      }
+      margin-right: 0;
     }
-  }
-}
-.form.form--color-picker .form__form-group {
-  @media screen and (max-width: 767px) {
-    width: 100%;
-
-    button {
-      width: 100%;
-    }
-  }
-}
- 
-.form--color-picker {
-  @media screen and (max-width: 767px) {
-    justify-content:  space-between;
   }
 }
 

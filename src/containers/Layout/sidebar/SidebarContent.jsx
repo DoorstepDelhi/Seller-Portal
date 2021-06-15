@@ -11,7 +11,7 @@ const SidebarContent = ({ onClick }) => {
   return (
     <div className="sidebar__content">
       <ul className="sidebar__block">
-        <SidebarLink title="Dashboard" icon="home" route="/dashboard" onClick={handleHideSidebar} />
+        <SidebarLink title="Dashboard" icon="home" route="pages/dashboard" onClick={handleHideSidebar} />
         <SidebarLink title="Products" icon="shirt" route="/products" onClick={handleHideSidebar} />
         <SidebarCategory title="Orders" icon="cart">
           <SidebarLink title="New" route="/orders/new" onClick={handleHideSidebar} />

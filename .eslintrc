@@ -17,6 +17,7 @@
   },
 
   "rules": {
+    "no-unused-vars": [1, {}],
     "import/no-extraneous-dependencies": "error",
     "jsx-a11y/anchor-is-valid": [ "error", {
       "components": [ "Link" ],
@@ -30,11 +31,31 @@
       }
     }],
     "max-len": ["error", {"code": 120, "ignoreRegExpLiterals": true, "tabWidth": 2}],
-    "no-console": [1],
+    "no-console": [0],
+    "no-alert": [0],
+    "no-trailing-spaces": "off",
+    "no-multiple-empty-lines": "off",
     "linebreak-style": "off",
-    "react/jsx-props-no-spreading": 0,
     "react/jsx-one-expression-per-line": [0, { "allow": "literal" }],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "react/jsx-fragments" : ["off", "element"]
+    "react/jsx-fragments" : ["off", "element"],
+    "react/jsx-props-no-spreading": [0, {"html": "ignore"}],
+    "rest-spread-spacing": "off",
+    "arrow-parens": [2, "as-needed", { "requireForBlockBody": true }],
+    "template-curly-spacing" : "off",
+    "indent" : "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+          [ "@", "./src" ]
+        ],
+        "extensions": [".js", ".css", ".sass", ".json", ".jsx"]
+      }
+    }
   }
+
 }
+
+

@@ -26,12 +26,12 @@
       }
 
       svg {
-        fill: $color-dusty-white;
+        fill: #dddddd;
       }
     }
 
     .checkbox-btn__label {
-      color: $color-dusty-white;
+      color: #dddddd;
     }
   }
 
@@ -42,7 +42,7 @@
       background-color: $color-accent;
 
       svg {
-        fill: $color-white;
+        fill: #ffffff;
       }
     }
 
@@ -63,7 +63,7 @@
       background-color: $color-accent;
 
       svg {
-        fill: $color-white;
+        fill: #ffffff;
       }
     }
 
@@ -77,7 +77,7 @@
         }
 
         svg {
-          fill: $color-dusty-white;
+          fill: #dddddd;
         }
       }
     }
@@ -86,15 +86,15 @@
   &.checkbox-btn--button {
     background: $color-accent;
     min-width: 150px;
-    color: $color-white;
+    color: #ffffff;
     height: 24px;
     border-radius: 4px;
     transition: all 0.3s;
-    padding: 0 10px;
+    padding: 0 6px;
     width: 100%;
 
     .checkbox-btn__label {
-      color: $color-white;
+      color: #ffffff;
     }
 
     .checkbox-btn__checkbox-custom {
@@ -102,17 +102,12 @@
     }
 
     .checkbox-btn__label-svg {
-      @include directify($directions) {
-        #{directed('margin-right')}: 4px;
-        #{directed('margin-left')}: auto;
-      }
-      margin-top: auto;
-      margin-bottom: auto;
+      margin: auto 4px auto auto;
       height: 16px;
       line-height: 1;
 
       svg {
-        fill: $color-white;
+        fill: #ffffff;
         width: 14px;
         height: 14px;
       }
@@ -134,12 +129,7 @@
     }
 
     .checkbox-btn__label {
-      @include directify($directions) {
-        #{directed('margin-right')}: auto;
-        #{directed('margin-left')}: 0px;
-      }
-      margin-top: auto;
-      margin-bottom: auto;
+      margin: auto auto auto 0;
       padding: 0;
     }
 
@@ -147,7 +137,7 @@
       background: $color-accent-hover;
 
       .checkbox-btn__label {
-        color: $color-white;
+        color: #ffffff;
       }
     }
 
@@ -155,7 +145,7 @@
       opacity: 0.4;
 
       .checkbox-btn__label {
-        color: $color-white;
+        color: #ffffff;
       }
     }
   }
@@ -187,9 +177,7 @@
 
 .checkbox-btn__label {
   line-height: 18px;
-  @include directify($directions) {
-    #{directed('padding-left')}: 28px;
-  }
+  padding-left: 28px;
   padding-top: 2px;
 
   @include themify($themes) {

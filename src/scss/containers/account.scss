@@ -10,12 +10,12 @@
   }
 
   &.account--photo {
-    background: url(../../shared/img/404/bg_404.png) no-repeat center!important;
+    background: url(../../shared/img/404/bg_404.png) no-repeat center;
     background-size: cover;
 
     .account__card {
       background-color: rgba(0, 10, 16, 0.8);
-      color: $color-white;
+      color: #ffffff;
     }
 
     .form__form-group-icon, .form__form-group-button {
@@ -23,20 +23,15 @@
     }
 
     .form__form-group-icon, input:not(:last-child) {
-
-      @include directify($directions) {
-        #{directed('border-right')}: none
-      }
+      border-right: none;
     }
 
     .form__form-group-button, input {
-
-      @include directify($directions) {
-        #{directed('border-left')}: none
-      }
+      border-left: none;
     }
 
     .form__form-group-button.active {
+      border-color: #eff1f5;
 
       svg {
         fill: $color-accent;
@@ -44,16 +39,19 @@
     }
 
     input {
-      color: $color-white;
-      box-shadow: none;
+      color: #ffffff;
+
+      &:focus {
+        border-color: #eff1f5;
+      }
     }
 
     p {
-      color: $color-white;
+      color: #ffffff;
     }
 
     .account__title {
-      color: $color-white;
+      color: #ffffff;
     }
   }
 }
@@ -61,62 +59,38 @@
 .account__wrapper {
   margin: auto;
   padding: 10px;
-
-  @include directify($directions) {
-    text-align: directed('left');
-  }
 }
 
 .account__card {
-  background-color: $color-white;
-  padding: 50px 60px;
-  max-width: 520px;
-  width: 100%;
 
   @include themify($themes) {
     background-color: themed('colorBackground');
   }
+
+  background-color: #ffffff;
+  padding: 50px 60px;
+  max-width: 520px;
+  width: 100%;
 }
 
 .account__profile {
   text-align: center;
 }
 
-.register__btns {
-
-  @include directify($directions) {
-    #{directed('margin-left')}: 0px!important;
-  }
-}
-
 .account__btns {
   display: flex;
   width: calc(100% + 10px);
-  margin-top: -10px;
-  margin-bottom: -20;
-
-  @include directify($directions) {
-    #{directed('margin-right')}: 0px;
-    #{directed('margin-left')}: -10px;
-  }
+  margin: -10px 0 -20px -10px;
 
   a {
-    margin-bottom: 20px;
+    margin: 10px 0 20px 10px;
     white-space: nowrap;
-
-    @include directify($directions) {
-      #{directed('margin-right')}: 0px;
-      #{directed('margin-left')}: 10px;
-    }
   }
 }
 
 .account__btn {
   width: 100%;
-
-  @include directify($directions) {
-    #{directed('margin-right')}: 0px;
-  }
+  margin-right: 0;
 }
 
 .account__avatar {
@@ -147,10 +121,7 @@
   font-size: 11px;
   line-height: 15px;
   bottom: -18px;
-
-  @include directify($directions) {
-    #{directed('right')}: 0px;
-  }
+  right: 0;
 
   a {
     color: $color-blue;
@@ -159,15 +130,6 @@
       color: $color-blue-hover;
       text-decoration: none;
     }
-  }
-}
-
-.reset-password {
-  bottom: 35px;
-
-  &_arrow-left-icon {
-    height: 9px;
-    margin-right: -5px;
   }
 }
 
@@ -185,23 +147,17 @@
     content: "";
     height: 1px;
     width: calc(50% - 90px);
-    background: $color-dusty-white;
+    background: #dddddd;
     position: absolute;
     top: 10px;
   }
 
   &:before {
-
-    @include directify($directions) {
-      #{directed('left')}: 0px;
-    }
+    left: 0;
   }
 
   &:after {
-
-    @include directify($directions) {
-      #{directed('right')}: 0px;
-    }
+    right: 0;
   }
 }
 
@@ -215,22 +171,16 @@
   width: 38px;
   border-radius: 5px;
   padding: 9px;
+  margin-right: 10px;
   transition: all 0.3s;
   border: none;
 
-  @include directify($directions) {
-    #{directed('margin-right')}: 10px;
-  }
-
   &:last-child {
-
-    @include directify($directions) {
-      #{directed('margin-right')}: 0px;
-    }
+    margin-right: 0;
   }
 
   svg {
-    fill: $color-white;
+    fill: #ffffff;
     height: 20px;
     width: 20px;
   }
@@ -250,34 +200,12 @@
       background: darken(#c74d4d, 10%);
     }
   }
-
-  &.account__social-btn--firebase {
-    background: #4287f5;
-    margin-top: 20px;
-    padding: 0;
-    padding-left: 5px;
-
-    &:before {
-      background-color: darken(#4287f5, 10%);
-    }
-
-    &:hover {
-      background: darken(#4287f5, 10%);
-    }
-  }
-
-  &.account__social-btn--auth0 {
-    margin-top: 20px;
-  }
 }
 
 .account__head {
   margin-bottom: 30px;
-
-  @include directify($directions) {
-    #{directed('padding-left')}: 10px;
-    #{directed('border-left')}: 4px solid $color-blue;
-  }
+  padding-left: 10px;
+  border-left: 4px solid $color-blue;
 }
 
 .account__logo {

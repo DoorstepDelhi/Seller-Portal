@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Slider from 'react-slick';
 import PropTypes from 'prop-types';
-import { RTLProps } from '@/shared/prop-types/ReducerProps';
+import { RTLProps } from '../../prop-types/ReducerProps';
 
 const CarouselMultiply = ({ children, rtl }) => {
   const settings = {

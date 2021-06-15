@@ -1,15 +1,20 @@
 .topbar {
-  position: fixed;
-  display: flex;
   width: 100%;
+  position: fixed;
   top: 0;
-  min-height: 60px;
+  height: 60px;
   z-index: 101;
   box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.05);
 
   @include themify($themes) {
     background: themed('colorBackground');
   }
+}
+
+.topbar__wrapper {
+  position: relative;
+  display: flex;
+  height: 60px;
 }
 
 .topbar__button {
@@ -31,13 +36,16 @@
       background: themed('colorHover');
     }
   }
+
+  &.topbar__button--desktop {
+    display: none;
+  }
 }
 
 .topbar__button-icon {
   margin: auto;
   transition: all 0.3s;
   width: 16px;
-  z-index: 101;
 }
 
 .topbar__logo {
@@ -54,41 +62,25 @@
     background-image: themed('logoImg');
   }
 
-  @media screen and (min-width: 835px) {
+  @media screen and (min-width: 768px) {
     display: block;
   }
 }
 
 .topbar__right {
   position: absolute;
+  right: 0;
   display: flex;
   height: 100%;
-
-  @include directify($directions) {
-    #{directed('right')}: 0px;
-    #{directed('margin-right')}: 15px;
-  }
-}
-
-.topbar__right-search {
-  margin: auto 15px;
-}
-
-.topbar__right-over {
-  display: flex;
-  flex: auto;
-  justify-content: space-between;
+  margin-right: 15px;
 }
 
 .topbar__left {
   position: absolute;
+  left: 0;
   display: flex;
   height: 100%;
   width: 50%;
-
-  @include directify($directions) {
-    #{directed('left')}: 0px;
-  }
 }
 
 .topbar__avatar {
@@ -104,7 +96,6 @@
   background-color: transparent;
 
   &:hover, &:focus, &:active, &:focus:active {
-
     @include themify($themes) {
       background-color: themed('colorHover');
     }
@@ -134,10 +125,7 @@
   line-height: 18px;
   font-weight: 400;
   display: none;
-
-  @include directify($directions) {
-    #{directed('margin-left')}: 10px;
-  }
+  margin-left: 10px;
 
   @include themify($themes) {
     color: themed('colorText');
@@ -145,13 +133,10 @@
 }
 
 .topbar__icon {
+  margin-left: 8px;
   height: 18px;
   margin-top: auto;
-  fill: lighten($color-gray, 25%);
-
-  @include directify($directions) {
-    #{directed('margin-left')}: 8px;
-  }
+  fill: #b1c3c8;
 }
 
 .topbar__menu {
@@ -170,7 +155,6 @@
     padding: 0;
 
     &:hover {
-
       @include themify($themes) {
         background-color: themed('colorHover');
       }
@@ -186,11 +170,9 @@
   z-index: 101;
   position: absolute;
   width: 100%;
-  min-width: 210px;
-
-  @include directify($directions) {
-    #{directed('right')}: 0px;
-  }
+  padding: 0 10px;
+  min-width: 220px;
+  right: 0;
 }
 
 .topbar__link {
@@ -209,20 +191,16 @@
   &:before {
     content: "";
     position: absolute;
+    left: 0;
     top: 0;
     height: 100%;
     width: 2px;
     background: $color-accent;
     opacity: 0;
     transition: all 0.3s;
-
-    @include directify($directions) {
-      #{directed('left')}: 0px;
-    }
   }
 
   &:hover {
-
     @include themify($themes) {
       background-color: themed('colorHover');
     }
@@ -234,19 +212,15 @@
 }
 
 .topbar__link-title {
-  display: flex;
   margin: 0;
   font-size: 14px;
   line-height: 16px;
 }
 
 .topbar__link-icon {
+  margin-right: 10px;
   font-size: 13px;
   line-height: 13px;
-
-  @include directify($directions) {
-    #{directed('margin-right')}: 10px;
-  }
 
   @include themify($themes) {
     color: themed('colorIcon');
@@ -262,17 +236,14 @@
 }
 
 .topbar__profile {
-  position: relative;
   margin-bottom: 0;
-
-  @include directify($directions) {
-    #{directed('margin-left')}: 0px;
-  }
+  margin-left: 20px;
+  position: relative;
 }
 
 .topbar__collapse {
   position: relative;
-  display: block;
+  display: none;
 
   &.topbar__collapse--language {
     min-width: 70px;
@@ -283,13 +254,6 @@
       width: 100%;
     }
   }
-  &:first-child {
-    margin-left: 15px;
-  }
-
-  &:not(:last-child) {
-    margin-right: 10px;
-  }
 
   @media screen and (min-width: 568px) {
     display: block;
@@ -299,61 +263,42 @@
 .topbar__collapse-content {
   width: 270px;
   position: absolute;
+  right: 0;
+  bottom: 20px;
+  transform: translateY(100%);
   box-shadow: 0 10px 25px 0 rgba(33, 36, 50, 0.13);
-  z-index: 102;
-
-  @include directify($directions) {
-    #{directed('right')}: 0px;
-  }
+  z-index: 101;
 
   @include themify($themes) {
     background: themed('colorBackground');
   }
 
-  @media screen and (max-width: 1024px) {
-    @include directify($directions) {
-      #{directed('right')}: -150px;
-    }
+  &.topbar__collapse-content--language {
+    max-width: 70px;
+    padding: 10px 0;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 768px) {
+    left: 50%;
+    transform: translate(-50%, 100%);
   }
 
   @media screen and (min-width: 520px) {
     width: 330px;
   }
-
-  &.topbar__collapse-content--language {
-    max-width: 75px;
-    width: 100%;
-
-    @media screen and (max-width: 1024px) {
-
-      @include directify($directions) {
-        #{directed('left')}: 0%;
-      }
-    }
-  }
 }
 
 .topbar__language-btn {
+  padding: 4px 15px;
   width: 100%;
   border: none;
   background: transparent;
   cursor: pointer;
+  text-align: left;
   font-size: 13px;
   line-height: 16px;
   transition: 0.3s;
-  padding: 4px 5px 4px 15px;
-
-  &:first-child {
-    padding-top: 14px;
-  }
-
-  &:last-child {
-    padding-bottom: 14px;
-  }
-
-  @include directify($directions) {
-    text-align: directed('left');
-  }
 
   &:hover {
     color: $color-accent;
@@ -371,19 +316,13 @@
   }
 
   &:not(:last-child) {
-
-    @include directify($directions) {
-      #{directed('margin-right')}: 5px;
-    }
+    margin-right: 5px;
   }
 
   img {
     height: 11px;
     width: 16px;
-
-    @include directify($directions) {
-      #{directed('margin-right')}: 4px;
-    }
+    margin-right: 4px;
   }
 }
 
@@ -412,18 +351,12 @@
 }
 
 .topbar__collapse-item {
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding: 12px 55px 12px 70px;
   display: flex;
   position: relative;
   height: 62px;
   align-items: center;
   flex-wrap: wrap;
-
-  @include directify($directions) {
-    #{directed('padding-left')}: 70px;
-    #{directed('padding-right')}: 55px;
-  }
 
   @include themify($themes) {
     border-bottom: 1px solid themed('colorBorder');
@@ -436,10 +369,7 @@
   border-radius: 50%;
   overflow: hidden;
   position: absolute;
-
-  @include directify($directions) {
-    #{directed('left')}: 15px;
-  }
+  left: 15px;
 }
 
 .topbar__collapse-message {
@@ -447,10 +377,6 @@
   font-size: 12px;
   line-height: 16px;
   color: $color-gray;
-
-  @include directify($directions) {
-    text-align: directed('left');
-  }
 
   &.topbar__collapse-message--mail {
     text-overflow: ellipsis;
@@ -469,13 +395,10 @@
 .topbar__collapse-date {
   position: absolute;
   top: 12px;
+  right: 15px;
   font-size: 10px;
   color: $color-gray;
   margin-top: 2px;
-
-  @include directify($directions) {
-    #{directed('right')}: 15px;
-  }
 }
 
 .topbar__collapse-link {
@@ -500,9 +423,10 @@
 }
 
 .topbar__collapse-button {
-  color: lighten($color-gray, 25%);
+  color: #c5d2d6;
   border: none;
   padding: 0;
+  text-align: right;
   font-size: 12px;
   line-height: 16px;
   transition: 0.3s;
@@ -510,10 +434,6 @@
 
   &:hover {
     color: $color-accent;
-  }
-
-  @include directify($directions) {
-    text-align: directed('right');
   }
 }
 
@@ -528,6 +448,10 @@
   background: transparent;
   transition: all 0.3s;
 
+  @include themify($themes) {
+    color: themed('colorText');
+  }
+
   &:hover {
 
     @include themify($themes) {
@@ -539,26 +463,15 @@
     margin: auto;
     height: 18px;
     width: 18px;
-    fill: lighten($color-gray, 25%);
-  }
-
-  @include themify($themes) {
-    color: themed('colorText');
-  }
-
-  @media screen and (max-width: 640px) {
-    padding: 0 5px;
+    fill: #b1c3c8;
   }
 
   &.topbar__btn--new {
 
     .topbar__btn-new-label {
       position: absolute;
+      right: 9px;
       top: 20px;
-
-      @include directify($directions) {
-        #{directed('right')}: 9px;
-      }
 
       & > div {
         position: relative;
@@ -568,55 +481,36 @@
           content: "";
           position: absolute;
           top: 50%;
+          left: 50%;
           border-radius: 50%;
+          transform: translate(-50%, -50%);
           animation: beforePulse 1.5s infinite;
-
-          @include directify($directions) {
-            #{directed('left')}: 50%;
-          }
-
-          @include directify($directions) {
-            transform: #{directed('translate')};
-          }
         }
 
         &:after {
           height: 7px;
           width: 7px;
-          background-color: $color-red;
+          background-color: #e0536f;
           content: "";
           position: absolute;
           top: 50%;
+          left: 50%;
           border-radius: 50%;
-
-          @include directify($directions) {
-            #{directed('left')}: 50%;
-          }
-
-          @include directify($directions) {
-            transform: #{directed('translate')};
-          }
+          transform: translate(-50%, -50%);
         }
-      }
-
-      @media screen and (max-width: 576px) {
-        top: 10px;
       }
     }
   }
 
   @keyframes beforePulse {
-
     from {
       width: 7px;
       height: 7px;
     }
-
     25% {
       width: 13px;
       height: 13px;
     }
-
     to {
       width: 7px;
       height: 7px;
@@ -625,15 +519,11 @@
 }
 
 .topbar__nav {
-  width: 75%;
+  width: 100%;
   display: none;
   height: 100%;
   justify-content: center;
   align-items: center;
-
-  @include directify($directions) {
-    #{directed('margin-right')}: 140px;
-  }
 }
 
 .topbar .topbar__nav-dropdown-toggle {
@@ -663,17 +553,11 @@
   }
 
   svg {
+    fill: $color-additional;
+    margin-left: 3px;
     height: 16px;
     width: 16px;
-    fill: $color-additional;
-
-    @include directify($directions) {
-      #{directed('margin-left')}: 3px;
-    }
-
-    @include directify($directions) {
-      #{directed('margin-right')}: 0px;
-    }
+    margin-right: 0;
   }
 }
 
@@ -687,30 +571,24 @@
 }
 
 .topbar__link-badge {
-  position: relative;
   width: 26px;
   height: 14px;
   background-color: $color-red;
   font-size: 8px;
   font-weight: 400;
   padding: 2px;
+  margin-left: 5px;
   line-height: 9px;
+  position: relative;
   text-transform: uppercase;
   border-radius: 7px;
 
-  @include directify($directions) {
-    #{directed('margin-left')}: 5px;
-  }
-
   span {
     position: absolute;
+    left: 0;
     top: 3px;
     width: 26px;
     text-align: center;
-
-    @include directify($directions) {
-      #{directed('left')}: 0px;
-    }
   }
 }
 
@@ -723,15 +601,15 @@
   transition: 0.3s;
   font-size: 14px;
 
+  @include themify($themes) {
+    color: themed('colorText');
+  }
+
   &:hover {
 
     @include themify($themes) {
       background-color: themed('colorHover');
     }
-  }
-
-  @include themify($themes) {
-    color: themed('colorText');
   }
 }
 
@@ -750,39 +628,18 @@
 
 .topbar__category-icon {
   position: absolute;
+  right: 20px;
   font-size: 10px;
   line-height: 14px;
-
-  @include directify($directions) {
-    #{directed('right')}: 20px;
-  }
 
   @include themify($themes) {
     color: themed('colorIcon');
   }
 }
 
-.rtl-support {
-
-  .topbar__submenu {
-    transform: none;
-    right: 100%;
-  }
-
-  .topbar__category-icon {
-    transform: rotate(180deg);
-  }
-}
-
-.ltr-support {
-
-  .topbar__submenu {
-    right: 1px;
-  }
-}
-
 .topbar__submenu {
   position: absolute;
+  right: 1px;
   top: 0;
   transform: translateX(100%);
   transition: 0.3s;
@@ -807,92 +664,57 @@
 }
 
 .topbar__search {
-  display: flex;
+  display: none;
   margin: auto 0;
   padding: 0;
   position: relative;
 }
 
 .topbar__search-field {
-  width: 100%;
-  height: 26px;
-  max-width: 350px;
-  min-width: 50px;
-  margin-top: auto;
-  margin-bottom: auto;
+  width: 0;
+  transition: all 0.3s;
+  opacity: 0;
+  margin: auto auto auto 0;
+  border: none;
   border-radius: 13px;
-  transition: border 0.3s;
-
-  &::placeholder {
-    color:#cac1c1;
-    @include directify($directions) {
-      #{directed('padding-right')}: 50px;
-    }
-  }
-
-  @include directify($directions) {
-    #{directed('margin-right')}: auto;
-    #{directed('margin-left')}: 0px;
-  }
-
-  @include directify($directions) {
-    #{directed('padding-left')}: 10px;
-    #{directed('padding-right')}: 46px;
-  }
+  height: 26px;
+  padding-left: 10px;
+  padding-right: 46px;
 
   @include themify($themes) {
     background-color: themed('colorBackgroundBody');
-    border: 1px solid themed('colorBackgroundBody');
-    color: themed('colorText');
   }
 
-  &:focus, &:active {
+  &.topbar__search-field--open {
+    width: 200px;
+    opacity: 1;
+    margin-left: 10px;
+
+    & + button {
+      right: 10px;
+    }
+  }
+
+  &:focus {
     outline: none;
-    border: 1px solid $color-accent;
-  }
-}
-
-.layout--top-navigation {
-
-  .topbar__search-field {
-
-    &::placeholder {
-      color: lighten($color-gray, 25%);
-    }
-
-    &.topbar__search-field--open {
-      width: 55vw;
-
-      @media screen and (max-width: 1200px) {
-        width: 59vw;
-      }
-
-      @media screen and (max-width: 1049px) {
-        width: 20vw;
-      }
-    }
   }
 }
 
 .topbar__search-btn {
-  position: absolute;
-  right: 5px;
   height: 26px;
   width: 26px;
   border-radius: 13px;
   border: none;
   padding: 0;
   background: transparent;
+  position: absolute;
+  right: 0;
 
   &:hover {
 
     @include themify($themes) {
       background-color: themed('colorBackgroundBody');
     }
-  }
-
-  @include directify($directions) {
-    #{directed('right')}: 0px;
   }
 }
 
@@ -904,16 +726,17 @@
 
   .topbar__menu {
     width: 100%;
-
-    @include directify($directions) {
-      #{directed('left')}: 0px !important;
-    }
+    left: 0 !important;
   }
 }
 
 @media screen and (min-width: 576px) {
 
   .topbar__button {
+
+    &.topbar__button--desktop {
+      display: block;
+    }
 
     &.topbar__button--mobile {
       display: none;
@@ -923,7 +746,7 @@
   .topbar.topbar--navigation {
 
     .topbar__button.topbar__button--mobile {
-      display: none;
+      display: block;
     }
   }
 }
@@ -935,7 +758,7 @@
   }
 }
 
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 992px) {
 
   .topbar__nav {
     display: flex;
@@ -944,15 +767,8 @@
   .topbar.topbar--navigation {
 
     .topbar__logo {
+      margin-left: 15px;
       display: block;
-
-      @include directify($directions) {
-        #{directed('margin-left')}: 15px;
-      }
-    }
-
-    .topbar__button.topbar__button--desktop {
-      display: none;
     }
 
     .topbar__button.topbar__button--mobile {
@@ -964,10 +780,7 @@
     }
 
     .topbar__profile {
-
-      @include directify($directions) {
-        #{directed('margin-left')}: 0px;
-      }
+      margin-left: 0;
     }
   }
 }
@@ -982,136 +795,9 @@
   }
 }
 
-@media screen and (min-width: 1920px) {
+@media screen and (min-width: 1580px) {
 
   .topbar__nav-dropdown-toggle, .topbar__nav-link {
     width: 240px;
-  }
-}
-
-@media screen and (max-width: 1550px) {
-
-  .topbar__nav {
-    width: 65%;
-  }
-}
-
-@media screen and (max-width: 700px) {
-
-  .topbar__search-field {
-    max-width: 150px;
-  }
-}
-
-@media screen and (max-width: 640px) {
-
-  .topbar__right-search {
-    margin-right: 0;
-  }
-
-  .topbar__search-field {
-    max-width: 120px;
-  }
-
-  .topbar__btn-new-label {
-    right: 5px !important;
-  }
-}
-
-
-@media screen and (max-width: 576px) {
-
-  .topbar {
-    min-height: 120px;
-  }
-
-  .topbar__right {
-    height: 100%;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: flex-end;
-  }
-
-  .topbar__right-search {
-    margin: 0;
-  }
-
-  .topbar__profile {
-    margin: inherit;
-  }
-
-  .topbar__collapse {
-
-    &:last-child {
-      margin-right: 0;
-    }
-
-    &:not(last-child) {
-      margin: inherit;
-    }
-  }
-
-  .topbar__collapse-content {
-    width: 250px;
-
-    @include directify($directions) {
-      #{directed('right')}: -215px;
-    }
-  }
-
-  .topbar__search {
-    margin-left: 220px;
-    margin-bottom: 15px;
-  }
-
-  .topbar__search-field {
-    max-width: 300px;
-    margin-bottom: 10px;
-    margin-left: 60px;
-  }
-
-  .topbar__button {
-
-    &.topbar__button--desktop {
-      display: none;
-    }
-  }
-
-  .topbar.topbar--navigation {
-
-    &.topbar__button--desktop {
-      display: none;
-    }
-  }
-}
-
-@media screen and (max-width: 320px) {
-
-  .topbar__right {
-    justify-content: flex-end;
-  }
-
-  .topbar__search {
-    margin-left: 140px;
-  }
-
-  .topbar__profile {
-    margin: auto 0;
-  }
-
-  .topbar__collapse-content {
-    width: 230px;
-
-    @include directify($directions) {
-      #{directed('right')}: -210px;
-    }
-  }
-
-  .topbar__menu-wrap {
-
-    @include directify($directions) {
-      #{directed('right')}: -50px;
-    }
   }
 }
