@@ -26,7 +26,7 @@ const wrappedRoutes = () => (
   <div>
     <Layout />
     <div className="container__wrap">
-      <Route path="/Orders" component={Orders} />
+      <Route path="/orders" component={Orders} />
       <Route path="/transactions" component={TransactionTable} />
       <Route path="/returns" component={ReturnsTable} />
       <Route path="/dashboard" component={Dashboard} />
