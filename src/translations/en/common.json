@@ -68,7 +68,9 @@
     "fat_burning": "Fat burning",
     "activity_rating": "Activity rating"
   },
-
+  "profile_dashboard": {
+    "user_profile": "User Profile"
+  },
   "layout": {
     "page_title": "Layout",
     "light_theme": "Light Theme",

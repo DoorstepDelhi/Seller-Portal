@@ -1,18 +1,14 @@
-/* eslint-disable react/jsx-indent */
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Layout from '../Layout/index';
 import MainWrapper from './MainWrapper';
-
 import LogIn from '../LogIn/index';
 import TransactionTable from '../Transactions/index';
 import ReturnsTable from '../Returns/index';
 import OrdersHistoryTable from '../OrdersHistory/index';
 import OrdersDetailsPage from '../OrdersDetails/index';
-
 import Dashboard from '../Dashboarddesign/index';
-
-
+import Profile from '../Profile/index';
 
 const Orders = () => (
   <Switch>
@@ -30,21 +26,21 @@ const wrappedRoutes = () => (
       <Route path="/transactions" component={TransactionTable} />
       <Route path="/returns" component={ReturnsTable} />
       <Route path="/dashboard" component={Dashboard} />
+      <Route path="/profile" component={Profile} />
     </div>
   </div>
 );
 
 const Router = () => (
-    <MainWrapper>
-      <main>
-       <Switch>
+  <MainWrapper>
+    <main>
+      <Switch>
         <Route exact path="/" component={LogIn} />
         <Route exact path="/log_in" component={LogIn} />
         <Route path="/" component={wrappedRoutes} />
-       </Switch>
-      </main>
-    </MainWrapper>
-
+      </Switch>
+    </main>
+  </MainWrapper>
 );
 
 export default Router;
