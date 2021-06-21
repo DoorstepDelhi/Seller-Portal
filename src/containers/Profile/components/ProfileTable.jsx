@@ -10,6 +10,7 @@ const header = [
   { id: 3, title: 'Address' },
   { id: 4, title: 'Bank Details' },
   { id: 5, title: 'Shipping' },
+  { id: 6, title: 'Edit' },
 ];
 
 const rows = [
@@ -91,8 +92,7 @@ const ProfileTable = () => {
   const { t } = useTranslation('common');
 
   return (
-    <Panel lg={12} title={t('profile_dashboard.user_profile')}>
-      <Button type="button" className="btn btn-primary "><b>EDIT</b></Button>
+    <div className="bg-white p-4">
       <Table responsive className="table--bordered">
         <thead>
           <tr>
@@ -110,11 +110,12 @@ const ProfileTable = () => {
               <td>{item.address}</td>
               <td>{item.bankDetails}</td>
               <td><Badge color={item.badge}>{item.shipped ? 'Shipped' : 'In Progress'}</Badge></td>
+              <td><Button type="button" className="btn-sm text-white btn-primary px-3 py-0"><b>EDIT</b></Button></td>
             </tr>
           ))}
         </tbody>
       </Table>
-    </Panel>
+    </div>
   );
 };
 
